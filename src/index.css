@@ -130,7 +130,7 @@ All colors MUST be HSL for consistency.
   }
 
   body {
-    @apply bg-background text-foreground font-comic cursor-custom;
+    @apply bg-background text-foreground font-comic;
     font-family: 'Comic Neue', cursive;
   }
 
