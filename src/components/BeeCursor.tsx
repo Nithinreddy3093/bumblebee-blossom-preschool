@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import beeCursorImg from '@/assets/bee-cursor.png';
+import beeCursorNew from '@/assets/bee-cursor-new.png';
 
 const BeeCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -45,33 +45,40 @@ const BeeCursor = () => {
 
   return (
     <>
-      {/* Trail effect */}
-      {trail.map((point, index) => (
-        <div
-          key={point.id}
-          className="fixed pointer-events-none z-50 rounded-full transition-all duration-200"
-          style={{
-            left: point.x - 2,
-            top: point.y - 2,
-            width: '4px',
-            height: '4px',
-            backgroundColor: 'hsl(var(--primary))',
-            opacity: (trail.length - index) / trail.length * 0.6,
-            transform: `scale(${(trail.length - index) / trail.length})`,
-            boxShadow: '0 0 6px hsl(var(--primary) / 0.4)',
-          }}
-        />
-      ))}
+      {/* Enhanced trail effect with varying sizes */}
+      {trail.map((point, index) => {
+        const intensity = (trail.length - index) / trail.length;
+        const size = 3 + intensity * 2;
+        return (
+          <div
+            key={point.id}
+            className="fixed pointer-events-none z-50 rounded-full transition-all duration-300"
+            style={{
+              left: point.x - size / 2,
+              top: point.y - size / 2,
+              width: `${size}px`,
+              height: `${size}px`,
+              backgroundColor: 'hsl(var(--primary))',
+              opacity: intensity * 0.7,
+              transform: `scale(${intensity})`,
+              boxShadow: `0 0 ${6 + intensity * 4}px hsl(var(--primary) / ${0.3 + intensity * 0.3})`,
+            }}
+          />
+        );
+      })}
       
-      {/* Main cursor */}
+      {/* Enhanced main cursor */}
       <div
-        className={`bee-cursor ${isVisible ? 'opacity-80' : 'opacity-0'} transition-opacity duration-200`}
+        className={`bee-cursor ${isVisible ? 'opacity-90' : 'opacity-0'} transition-all duration-300`}
         style={{
-          left: position.x - 10,
-          top: position.y - 10,
-          background: `url(${beeCursorImg}) no-repeat center`,
-          backgroundSize: '20px 20px',
-          filter: 'drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))',
+          left: position.x - 15,
+          top: position.y - 15,
+          background: `url(${beeCursorNew}) no-repeat center`,
+          backgroundSize: '30px 30px',
+          width: '30px',
+          height: '30px',
+          filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 4px rgba(255, 165, 0, 0.6))',
+          transform: 'rotate(-15deg)',
         }}
       />
     </>

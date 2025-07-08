@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
 import IntroVideo from '@/components/IntroVideo';
 import BeeAnimation from '@/components/BeeAnimation';
+import BeeCursor from '@/components/BeeCursor';
 import SoundToggle from '@/components/SoundToggle';
 import beeLogo from '@/assets/bee-logo.png';
 import natureBackground from '@/assets/nature-background.png';
@@ -67,6 +68,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-nature">
       <Navbar />
       <BeeAnimation soundEnabled={soundEnabled} />
+      <BeeCursor />
       <SoundToggle soundEnabled={soundEnabled} onToggle={setSoundEnabled} />
       
       {/* Hero Section */}
