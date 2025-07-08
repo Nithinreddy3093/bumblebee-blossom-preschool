@@ -5,12 +5,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
 import IntroVideo from '@/components/IntroVideo';
+import BeeAnimation from '@/components/BeeAnimation';
+import SoundToggle from '@/components/SoundToggle';
 import beeLogo from '@/assets/bee-logo.png';
 import natureBackground from '@/assets/nature-background.png';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [hasVisited, setHasVisited] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(false);
 
   useEffect(() => {
     // Check if user has visited before
@@ -63,6 +66,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-nature">
       <Navbar />
+      <BeeAnimation soundEnabled={soundEnabled} />
+      <SoundToggle soundEnabled={soundEnabled} onToggle={setSoundEnabled} />
       
       {/* Hero Section */}
       <section 
