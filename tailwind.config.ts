@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'comic': ['Comic Neue', 'cursive'],
+				'baloo': ['Baloo 2', 'cursive'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,7 +30,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -61,7 +66,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Bumblebee themed colors
+				honeycomb: 'hsl(var(--honeycomb))',
+				'bee-black': 'hsl(var(--bee-black))',
+				'flower-pink': 'hsl(var(--flower-pink))',
+				'leaf-green': 'hsl(var(--leaf-green))',
+				'sky-blue': 'hsl(var(--sky-blue))'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-nature': 'var(--gradient-nature)',
+				'gradient-flower': 'var(--gradient-flower)'
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'glow': 'var(--shadow-glow)',
+				'nature': 'var(--shadow-nature)'
+			},
+			transitionTimingFunction: {
+				'bouncy': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

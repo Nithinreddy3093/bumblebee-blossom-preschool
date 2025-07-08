@@ -2,41 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Bumblebee Preschool Design System - Vibrant bee and nature theme
+All colors MUST be HSL for consistency.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Sky blue background with soft warmth */
+    --background: 205 100% 97%;
+    --foreground: 0 0% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Bright yellow like bee and sunflower */
+    --primary: 45 100% 65%;
+    --primary-foreground: 0 0% 15%;
+    --primary-glow: 45 100% 75%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Soft pink like flower petals */
+    --secondary: 340 85% 85%;
+    --secondary-foreground: 340 85% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Fresh green like leaves */
+    --accent: 120 60% 70%;
+    --accent-foreground: 120 60% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Card backgrounds with slight warmth */
+    --card: 45 50% 98%;
+    --card-foreground: 0 0% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 45 50% 98%;
+    --popover-foreground: 0 0% 15%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Muted tones for subtle elements */
+    --muted: 45 30% 93%;
+    --muted-foreground: 0 0% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Error states */
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs with warm tint */
+    --border: 45 25% 88%;
+    --input: 45 25% 95%;
+    --ring: 45 100% 65%;
 
-    --radius: 0.5rem;
+    /* Honeycomb and bee inspired colors */
+    --honeycomb: 40 95% 80%;
+    --bee-black: 0 0% 10%;
+    --flower-pink: 320 75% 80%;
+    --leaf-green: 100 50% 65%;
+    --sky-blue: 200 85% 85%;
+
+    /* Gradients for magical effects */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 65%), hsl(45 100% 75%));
+    --gradient-nature: linear-gradient(180deg, hsl(200 85% 85%), hsl(120 60% 85%));
+    --gradient-flower: linear-gradient(45deg, hsl(320 75% 80%), hsl(45 100% 75%));
+    
+    /* Shadows with bee colors */
+    --shadow-soft: 0 4px 20px hsl(45 100% 65% / 0.15);
+    --shadow-glow: 0 0 30px hsl(45 100% 75% / 0.3);
+    --shadow-nature: 0 8px 32px hsl(120 60% 70% / 0.2);
+
+    /* Animation timing */
+    --transition-bouncy: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +130,50 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-comic cursor-custom;
+    font-family: 'Comic Neue', cursive;
+  }
+
+  /* Custom bee cursor trail effect */
+  .cursor-bee-trail {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGVsbGlwc2UgY3g9IjEyIiBjeT0iMTIiIHJ4PSI4IiByeT0iNSIgZmlsbD0iI0ZGRDcwMCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiLz4KPHN0cmlwZSB4MT0iNCIgeTE9IjEyIiB4Mj0iMjAiIHkyPSIxMiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iOCIgY3k9IjEwIiByPSIxIiBmaWxsPSIjMDAwIi8+CjxjaXJjbGUgY3g9IjE2IiBjeT0iMTAiIHI9IjEiIGZpbGw9IiMwMDAiLz4KPC9zdmc+'), auto;
+  }
+
+  /* Floating animation for background elements */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+  }
+
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary)), 0 0 15px hsl(var(--primary)); }
+    50% { box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary)); }
+  }
+
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-bounce-gentle { animation: bounce 2s ease-in-out infinite; }
+  .animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
+  .animate-glow { animation: glow 2s ease-in-out infinite; }
+
+  /* Bee trail cursor effect */
+  .bee-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
   }
 }
